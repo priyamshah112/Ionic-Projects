@@ -7,10 +7,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import {AngularFireModule} from 'angularfire2';
+import {FIREBASE_CONFIG} from './firebase.credentials';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    AngularFireDatabaseModule,
   ],
   imports: [
     BrowserModule,
@@ -18,8 +23,7 @@ import { HomePage } from '../pages/home/home';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   providers: [
     StatusBar,
